@@ -1,5 +1,5 @@
 class Ball
-    constructor: (@position) ->
+    constructor: (@position, @size, @mass) ->
 
 root = exports ? this
 root.Ball = Ball
