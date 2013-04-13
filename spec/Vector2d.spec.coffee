@@ -16,3 +16,10 @@ describe 'Vector2d', ->
         vector2 = new Vector2d 1, 2
         vectorsEquality = vector1.equalsTo vector2
         expect(vectorsEquality).toBe(true)
+
+    it 'should add to second vector', ->
+        vector1 = new Vector2d 1, 1
+        vector2 = new Vector2d 2, 3
+        resultVector = vector1.add vector2
+        expect(resultVector.x).toEqual(3)
+        expect(resultVector.y).toEqual(4)
