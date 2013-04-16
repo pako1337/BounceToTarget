@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script language="text/javascript" src="../lib/Vector2d.js"></script>
+        <script language="text/javascript" src="../lib/Ball.js"></script>
+    </head>
+    <body>
+        <p>Bounce to target!</p>
+        <canvas id="gameArea" width="500" height="500"></canvas>
+        <script>
+            var c = document.getElementById("gameArea");
+            var context = c.getContext("2d");
+            context.fillStyle = "#EE2222";
+            context.strokeStyle = "#22EE22";
+            context.beginPath();
+            context.arc(200, 200, 50, 0, 2*Math.PI);
+            context.stroke();
+        </script>
+    </body>
+</html>
