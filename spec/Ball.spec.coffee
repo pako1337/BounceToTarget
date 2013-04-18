@@ -1,5 +1,5 @@
-exportsBall = require("../Ball.coffee")
-exportsVector2d = require("../Vector2d.coffee")
+exportsBall = require("../src/Ball.coffee")
+exportsVector2d = require("../src/Vector2d.coffee")
 Ball = exportsBall.Ball
 Vector2d = exportsVector2d.Vector2d
 

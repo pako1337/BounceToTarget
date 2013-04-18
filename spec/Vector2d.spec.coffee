@@ -1,4 +1,4 @@
-exports = require("../Vector2d.coffee")
+exports = require("../src/Vector2d.coffee")
 Vector2d = exports.Vector2d
 
 describe 'Vector2d', ->
