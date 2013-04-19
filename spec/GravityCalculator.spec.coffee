@@ -60,3 +60,11 @@ describe 'GravityCalculator', ->
         obj2.position = { x: 2, y: 0 }
         gravityForce = gravCalc.calculateForce obj1, obj2
         expect(gravityForce).toEqual 9
+
+    it 'should return 4 for masses 10 and 20 and distance sqrt(50)', ->
+        obj1.mass = 10
+        obj2.mass = 20
+        obj1.position = { x: 0, y: 0 }
+        obj2.position = { x: 5, y: 5 }
+        gravityForce = gravCalc.calculateForce obj1, obj2
+        expect(gravityForce).toEqual 4
