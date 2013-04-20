@@ -5,6 +5,7 @@ describe 'GravityCalculator', ->
     gravCalc = undefined
     obj1 = new Object
     obj2 = new Object
+    e = 0.001
 
     beforeEach ->
         gravCalc = new GravityCalculator
@@ -68,3 +69,13 @@ describe 'GravityCalculator', ->
         obj2.position = { x: 5, y: 5 }
         gravityForce = gravCalc.calculateForce obj1, obj2
         expect(gravityForce).toEqual 4
+
+    it 'should return vector(0,1) for one object above the other, mass 1, distance 1', ->
+        obj1.mass = 1
+        obj2.mass = 1
+        obj1.position = { x: 0, y: 0 }
+        obj2.position = { x: 0, y: 1 }
+        gravityForce = gravCalc.calculateGravity obj1, obj2
+        expect(gravityForce.length()).toBeCloseTo 1, e
+        expect(gravityForce.x).toBeCloseTo 0, e
+        expect(gravityForce.y).toBeCloseTo 1, e
