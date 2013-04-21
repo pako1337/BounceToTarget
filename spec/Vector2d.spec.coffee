@@ -9,7 +9,7 @@ describe 'Vector2d', ->
         vector = new Vector2d 1, 2
 
     it 'should be created', ->
-        expect(vector).not.toBeNull
+        expect(vector).not.toBeNull()
 
     it 'should be created with coordinates', ->
         expect(vector.x).toBeCloseTo 1, e
