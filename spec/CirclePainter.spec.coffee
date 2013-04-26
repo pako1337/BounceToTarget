@@ -3,9 +3,22 @@ CirclePainter = _circlePainterExpotrs.CirclePainter
 
 describe 'CirclePainter', ->
     circlePainter = new CirclePainter
+    element = new Object
+    canvas = new Object
 
     beforeEach ->
         circlePainter = new CirclePainter
+        element =
+            position:
+                x: 100
+                y: 200
+            size:
+                x: 10
+                y: 10
+        canvas =
+            arc: ->
+            fill: ->
+            stroke: ->
 
     it 'should be created', ->
         expect(circlePainter).not.toBeNull()
@@ -25,3 +38,10 @@ describe 'CirclePainter', ->
 
     it 'should throw when source element not defined as parameter in paint method', ->
         expect(-> circlePainter.paint new Object).toThrow()
+
+    it 'should paint circle on canvas', ->
+        spyOn canvas, 'arc'
+        spyOn canvas, 'fill'
+        circlePainter.paint canvas, element
+        expect(canvas.arc).toHaveBeenCalledWith 100, 200, 5, 0, Math.PI * 2, true
+        expect(canvas.fill).toHaveBeenCalled()
