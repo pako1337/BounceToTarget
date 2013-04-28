@@ -4,19 +4,23 @@ Ball = exportsBall.Ball
 Vector2d = exportsVector2d.Vector2d
 
 describe 'Ball', ->
+    ball = new Object
+
+    beforeEach ->
+        ball = new Ball new Vector2d(1, 2), 5, 5, new Object
     it 'should be created', ->
-        ball = new Ball
         expect(ball).not.toBeNull()
 
     it 'should be created with initial position', ->
-        ball = new Ball new Vector2d(1, 2)
         expect(ball.position.x).toEqual(1)
         expect(ball.position.y).toEqual(2)
 
     it 'should be created with initial size', ->
-        ball = new Ball new Vector2d(0, 0), 5
         expect(ball.size).toEqual(5)
 
     it 'should have mass', ->
-        ball = new Ball new Vector2d(0, 0), 0, 5
         expect(ball.mass).toEqual(5)
+
+    it 'should throw when painter not provided in constructor', ->
+        ball = -> new Ball new Vector2d(0, 0), new Vector2d(0, 0), 5
+        expect(ball).toThrow()
